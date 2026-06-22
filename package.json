@@ -3,6 +3,16 @@
   "version": "0.1.0",
   "type": "module",
   "private": true,
+  "workspaces": [
+    "frontend"
+  ],
+  "scripts": {
+    "api:compile": "tsp compile .",
+    "api:mock": "npx @stoplight/prism-cli mock tsp-output/schema/openapi.yaml -p 4000",
+    "frontend:dev": "npm run dev --workspace=frontend",
+    "frontend:build": "npm run build --workspace=frontend",
+    "frontend:lint": "npm run lint --workspace=frontend"
+  },
   "dependencies": {
     "@typespec/compiler": "^1.13.0",
     "@typespec/http": "^1.13.0",
