@@ -1,6 +1,9 @@
 # Stage 1: Build the frontend application
 FROM node:22-alpine AS builder
 
+ARG PORT=7100
+ENV PORT=$PORT
+
 WORKDIR /app
 
 # Copy root package files to support npm workspaces caching

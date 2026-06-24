@@ -26,8 +26,9 @@ services:
     environment:
       DATABASE_URL: postgresql+asyncpg://postgres:postgres@db:5432/zapisi
       ADMIN_PASSWORD: admin
+      PORT: 7100
     ports:
-      - "7100:8000"
+      - "7100:7100"
     depends_on:
       db:
         condition: service_healthy
@@ -36,6 +37,8 @@ services:
     build:
       context: .
       dockerfile: frontend/Dockerfile
+      args:
+        PORT: 7100
     container_name: zapisi_frontend
     restart: always
     ports:

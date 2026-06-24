@@ -7,7 +7,8 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     POETRY_VERSION=1.8.2 \
     POETRY_HOME="/opt/poetry" \
     POETRY_NO_INTERACTION=1 \
-    POETRY_VIRTUALENVS_CREATE=false
+    POETRY_VIRTUALENVS_CREATE=false \
+    PORT=7100
 
 # Install curl and build tools
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -33,8 +34,8 @@ COPY app/ ./app/
 COPY migrations/ ./migrations/
 COPY alembic.ini ./
 
-# Expose port 8000
-EXPOSE 8000
+# Expose port
+EXPOSE $PORT
 
 # Run migrations and start the application
-CMD ["sh", "-c", "alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 8000"]
+CMD ["sh", "-c", "alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port ${PORT}"]

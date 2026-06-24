@@ -2,6 +2,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
+    PORT: int = 7100
     DATABASE_URL: str = "postgresql+asyncpg://postgres:postgres@localhost:5432/zapisi"
     ADMIN_PASSWORD: str = "admin"
 

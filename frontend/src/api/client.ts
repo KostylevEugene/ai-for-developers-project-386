@@ -6,7 +6,8 @@ import type {
   LoginRequest,
 } from './types';
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:4000';
+const PORT = import.meta.env.PORT || '7100';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || `http://localhost:${PORT}`;
 
 export const apiClient = axios.create({
   baseURL: API_BASE_URL,
