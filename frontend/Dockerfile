@@ -4,6 +4,9 @@ FROM node:22-alpine AS builder
 ARG PORT=7100
 ENV PORT=$PORT
 
+ARG VITE_BACKEND_URL=http://localhost
+ENV VITE_BACKEND_URL=$VITE_BACKEND_URL
+
 WORKDIR /app
 
 # Copy root package files to support npm workspaces caching
