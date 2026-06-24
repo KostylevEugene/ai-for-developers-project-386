@@ -8,7 +8,7 @@ import type {
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost';
 const PORT = import.meta.env.PORT || '7100';
-const API_BASE_URL = `${BACKEND_URL}:${PORT}`;
+const API_BASE_URL = PORT && PORT !== 'false' ? `${BACKEND_URL}:${PORT}` : BACKEND_URL;
 
 export const apiClient = axios.create({
   baseURL: API_BASE_URL,

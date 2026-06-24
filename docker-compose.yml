@@ -17,35 +17,21 @@ services:
       timeout: 5s
       retries: 5
 
-  backend:
+  app:
     build:
-      context: ./backend
+      context: .
       dockerfile: Dockerfile
-    container_name: zapisi_backend
+    container_name: zapisi_app
     restart: always
     environment:
       DATABASE_URL: postgresql+asyncpg://postgres:postgres@db:5432/zapisi
       ADMIN_PASSWORD: admin
       PORT: ${PORT:-7100}
     ports:
-      - "${PORT:-7100}:${PORT:-7100}"
+      - "80:80"
     depends_on:
       db:
         condition: service_healthy
-
-  frontend:
-    build:
-      context: .
-      dockerfile: frontend/Dockerfile
-      args:
-        PORT: ${PORT:-7100}
-        VITE_BACKEND_URL: http://localhost
-    container_name: zapisi_frontend
-    restart: always
-    ports:
-      - "80:80"
-    depends_on:
-      - backend
 
 volumes:
   pgdata:
