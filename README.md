@@ -2,6 +2,7 @@
 [![Actions Status](https://github.com/KostylevEugene/ai-for-developers-project-386/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/KostylevEugene/ai-for-developers-project-386/actions)
 
 # Zapisi.com (Клон Cal.com) — Сервис онлайн-записи
+Данный сервис является учебным и является практической работой с ИИ-агентом. Весь код и описания были выполнены агентом.
 
 Современный и отзывчивый веб-интерфейс для системы онлайн-записи на приёмы к врачам, барберам, мастерам маникюра или любым другим специалистам. Проект разработан на базе **React**, **Vite**, **TypeScript** и **Mantine UI**.
 
